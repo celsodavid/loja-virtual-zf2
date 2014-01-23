@@ -288,12 +288,7 @@ $(function(){
 						});
 				}
 			return false;
-		});
-		
-		$( "#search, #search_footer" ).autocomplete({
-    		minLength: 3,
- 		    source: basePatch+"/autocomplete/"
-    	 });	
+		});	
 		var posicaoAnterior = null;
 		var addProdutoSlide = null;
 			$(".ContSlider a").hover(function(){

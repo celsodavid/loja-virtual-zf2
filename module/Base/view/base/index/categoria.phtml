@@ -1,0 +1,194 @@
+
+                                                <div class="page-title category-title">
+        <h1><?=$this->titulo->getNome()?></h1>
+</div>
+
+
+    <p class="category-image"><img src="http://web-experiment.info/magento14/media/catalog/category/great-indoor-toys-games_ss._V170366363__2.jpg" alt="Kids &amp; Baby" title="Kids &amp; Baby"></p>
+    <div class="category-description std">
+        SweetShop Magento Template. Kids &amp; Baby Magento Template, Kids &amp; Baby Magento Theme, Baby Products
+ Magento Template. Magento Template for Baby Stationery, Baby &amp; Toddler Toys, Gear, Apparel &amp; Accessories and more.     </div>
+    
+    <div class="category-products">
+    <div class="toolbar">
+    <div class="pager">
+        <p class="amount">
+                            Items 1 to 10 of 20 total                    </p>
+
+        <div class="limiter">
+            <label>Show</label>
+            <select onchange="setLocation(this.value)">
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?limit=10" selected="selected">
+                    10                </option>
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?limit=20">
+                    20                </option>
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?limit=40">
+                    40                </option>
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?limit=all">
+                    All                </option>
+                        </select> per page        </div>
+
+        
+    
+    
+    
+        <div class="pages">
+        <strong>Page:</strong>
+        <ol>
+        
+        
+        
+                                    <li class="current">1</li>
+                                                <li><a href="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?p=2">2</a></li>
+                    
+
+        
+        
+                    <li>
+                <a class="next" href="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?p=2" title="Next">
+                                            <img src="http://web-experiment.info/magento14/skin/frontend/default/bluescale/images/i_pager-next.gif" alt="Next" class="v-middle">
+                                    </a>
+            </li>
+                </ol>
+
+    </div>
+    
+    
+
+    </div>
+
+        <div class="sorter">
+                <p class="view-mode">
+                                    <label>View as:</label>
+                                                <strong title="Grid" class="grid">Grid</strong>&nbsp;
+                                                                <a href="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?mode=list" title="List" class="list">List</a>&nbsp;
+                                                </p>
+            
+        <div class="sort-by">
+            <label>Sort by</label>
+            <select onchange="setLocation(this.value)">
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?dir=asc&amp;order=position" selected="selected">
+                    Position                </option>
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?dir=asc&amp;order=name">
+                    Name                </option>
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?dir=asc&amp;order=price">
+                    Price                </option>
+                        </select>
+                            <a href="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?dir=desc&amp;order=position" title="Set Descending Direction"><img src="http://web-experiment.info/magento14/skin/frontend/default/bluescale/images/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle"></a>
+                    </div>
+    </div>
+    </div>
+       <ul class="products-grid first odd">
+        <?php 
+        $i = 1;
+                  	    foreach($this->page as $produto)
+                  	    {
+                  	       
+                  	        ?>
+                    <li class="item <?if($i == 1) {print "first";}else if($i == 3) print "last";?>">
+                <a href="<?php echo $this->url('publico-categoria/publico-categoria-e-subcategoria/publico-produto', array('categoriaslug'=>$produto->getProdutosubcategoria()->getCategorias()->getSlug(), 'subcategoriaslugSub'=>$produto->getProdutosubcategoria()->getSlugSubcategoria(), 'produtoSlug'=>$produto->getSlugProduto() )); ?>" title="Mix N Match Layette Set" class="product-image"><img src="<?=$this->basePath()?>/images/produtos/small/<?php echo $produto->getFoto();?>" width="135" height="135" alt="Mix N Match Layette Set"></a>
+                <h2 class="product-name"><a href="<?php echo $this->url('publico-categoria/publico-categoria-e-subcategoria/publico-produto', array('categoriaslug'=>$produto->getProdutosubcategoria()->getCategorias()->getSlug(), 'subcategoriaslugSub'=>$produto->getProdutosubcategoria()->getSlugSubcategoria(), 'produtoSlug'=>$produto->getSlugProduto() )); ?>" title="Mix N Match Layette Set"> <?php echo $produto->getTitulo(); ?></a></h2>
+                                
+
+        
+    <div class="price-box">
+                                                            <span class="price-label">Valor:</span>
+                <span class="regular-price" id="product-price-938">
+                    <span class="price"><?php echo $produto->getValor(true); ?></span>                </span>
+                        
+        </div>
+
+
+                <div class="actions">
+                                            <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('http://web-experiment.info/magento14/bluescale/checkout/cart/add/uenc/aHR0cDovL3dlYi1leHBlcmltZW50LmluZm8vbWFnZW50bzE0L2JsdWVzY2FsZS9hcHBhcmVsL2tpZHMtYmFieS5odG1sP19fX1NJRD1V/product/938/')"><span><span>Adicionar ao Carrinho</span></span></button>
+                                                            
+                                    </div>
+            </li>
+            <?php 
+            			if($i == 3)
+            			{
+            				?>
+            				</ul>
+            				<ul class="products-grid first odd">
+            				<?php
+            				$i = 1;
+            			}else {
+            				$i++;
+            			}
+           
+                  	    }
+            ?>
+                </ul>
+                        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+    
+    <div class="toolbar-bottom">
+        <div class="toolbar">
+    <div class="pager">
+        <p class="amount">
+                            Items 1 to 10 of 20 total                    </p>
+
+        <div class="limiter">
+            <label>Show</label>
+            <select onchange="setLocation(this.value)">
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?limit=10" selected="selected">
+                    10                </option>
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?limit=20">
+                    20                </option>
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?limit=40">
+                    40                </option>
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?limit=all">
+                    All                </option>
+                        </select> per page        </div>
+
+        
+    
+    
+    
+        <div class="pages">
+        <strong>Page:</strong>
+        <ol>
+        
+        
+        
+                                    <li class="current">1</li>
+                                                <li><a href="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?p=2">2</a></li>
+                    
+
+        
+        
+                    <li>
+                <a class="next" href="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?p=2" title="Next">
+                                            <img src="http://web-experiment.info/magento14/skin/frontend/default/bluescale/images/i_pager-next.gif" alt="Next" class="v-middle">
+                                    </a>
+            </li>
+                </ol>
+
+    </div>
+    
+    
+
+    </div>
+
+        <div class="sorter">
+                <p class="view-mode">
+                                    <label>View as:</label>
+                                                <strong title="Grid" class="grid">Grid</strong>&nbsp;
+                                                                <a href="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?mode=list" title="List" class="list">List</a>&nbsp;
+                                                </p>
+            
+        <div class="sort-by">
+            <label>Sort by</label>
+            <select onchange="setLocation(this.value)">
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?dir=asc&amp;order=position" selected="selected">
+                    Position                </option>
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?dir=asc&amp;order=name">
+                    Name                </option>
+                            <option value="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?dir=asc&amp;order=price">
+                    Price                </option>
+                        </select>
+                            <a href="http://web-experiment.info/magento14/bluescale/apparel/kids-baby.html?dir=desc&amp;order=position" title="Set Descending Direction"><img src="http://web-experiment.info/magento14/skin/frontend/default/bluescale/images/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle"></a>
+                    </div>
+    </div>
+    </div>
+    </div>
+</div>

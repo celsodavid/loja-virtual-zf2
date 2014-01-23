@@ -1,0 +1,68 @@
+
+                                        <div class="std"><div id="slider-wrap" class="slider-wrap">
+<div id="stripNav0" class="stripNav"><a href="#" class="activeSlide">1</a><a href="#" class="">2</a><a href="#" class="">3</a></div><div id="slider-content" class="slider-wrap" style="width: 741px; height: 280px;"><img src="http://ledsom.com.br/wp-content/uploads/2013/12/banner-eletronicos.jpg" alt="" width="741" height="280" style="position: absolute; top: 0px; left: 0px; display: block; z-index: 4; opacity: 0.9962517753734119; width: 741px; height: 280px;"><img src="http://web-experiment.info/magento14/media/bluescale/02.jpg" width="741" height="280" alt="" style="position: absolute; top: 0px; left: 0px; display: none; z-index: 3; opacity: 0; width: 741px; height: 280px;"><img src="http://web-experiment.info/magento14/media/bluescale/03.jpg" alt="" width="741" height="280" style="position: absolute; top: 0px; left: 0px; display: block; z-index: 3; opacity: 0.002849604801500538; width: 741px; height: 280px;"></div>
+</div>
+<!-- .slider-wrap -->
+<div class="best_sellers_title"><span>Produtos em Destaque</span></div>
+<div><div class="category-products">
+
+    
+                            <ul class="products-grid first odd">
+                             <?php $i=count($this->prodDestaques); foreach($this->prodDestaques as $destaque): ?>
+								<?php if($i <= 3):?>
+                    <li class="item first">
+                <a href="<?php echo $this->url('publico-categoria/publico-categoria-e-subcategoria/publico-produto', array('categoriaslug'=>$destaque->getProdutosubcategoria()->getCategorias()->getSlug(), 'subcategoriaslugSub'=>$destaque->getProdutosubcategoria()->getSlugSubcategoria(), 'produtoSlug'=>$destaque->getSlugProduto())); ?>" title="Natural Cotton Tote Bag" class="product-image"><img src="<?=$this->basePath()?>/images/produtos/small/<?php echo $destaque->getFoto();?>" width="135" height="135" alt="Natural Cotton Tote Bag"></a>
+                <h2 class="product-name"><a href="<?php echo $this->url('publico-categoria/publico-categoria-e-subcategoria/publico-produto', array('categoriaslug'=>$destaque->getProdutosubcategoria()->getCategorias()->getSlug(), 'subcategoriaslugSub'=>$destaque->getProdutosubcategoria()->getSlugSubcategoria(), 'produtoSlug'=>$destaque->getSlugProduto())); ?>" title="Natural Cotton Tote Bag"><?php echo $destaque->getTitulo(); ?></a></h2>
+                                                                
+
+        
+    <div class="price-box">
+                                
+                    <p class="old-price">
+                <span class="price-label">Valor:</span>
+                <span class="price" id="old-price-705">
+                    <?php echo $destaque->getValor(true); ?>                </span>
+            </p>   
+    
+        </div>
+
+                <div class="actions">
+                                           <a href="<?php echo $this->url('publico-categoria/publico-categoria-e-subcategoria/publico-produto', array('categoriaslug'=>$destaque->getProdutosubcategoria()->getCategorias()->getSlug(), 'subcategoriaslugSub'=>$destaque->getProdutosubcategoria()->getSlugSubcategoria(), 'produtoSlug'=>$destaque->getSlugProduto())); ?>"> <button type="button" title="Add to Cart" class="button btn-cart"><span><span>Adicionar ao Carrinho</span></span></button></a>
+                                    </div>
+            </li>
+                <?php endif; ?>
+							<?php $i--; endforeach; ?>                   
+                                   
+                </ul>
+                        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+</div>
+</div>
+<div class="best_sellers_title"><span>Produtos mais Visitados</span></div>
+<div><div class="category-products">
+<ul class="products-grid first odd">
+		 <?php $i=count($this->prodVisistados); foreach($this->prodVisistados as $destaque): ?>
+		 		<li class="item first">
+                <a href="http://web-experiment.info/magento14/bluescale/round-decorative-wall-mirror-705.html" title="Natural Cotton Tote Bag" class="product-image"><img src="<?=$this->basePath()?>/images/produtos/small/<?php echo $destaque->getFoto();?>" width="135" height="135" alt="Natural Cotton Tote Bag"></a>
+                <h2 class="product-name"><a href="http://web-experiment.info/magento14/bluescale/round-decorative-wall-mirror-705.html" title="Natural Cotton Tote Bag"><?php echo $destaque->getTitulo(); ?></a></h2>
+                                                                
+
+        
+    <div class="price-box">
+                                
+                    <p class="old-price">
+                <span class="price-label">Valor:</span>
+                <span class="price" id="old-price-705">
+                    <?php echo $destaque->getValor(true); ?>                </span>
+            </p>   
+    
+        </div>
+
+                <div class="actions">
+                                            <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('http://web-experiment.info/magento14/bluescale/round-decorative-wall-mirror-705.html?options=cart')"><span><span>Adicionar ao Carrinho</span></span></button>
+                                    </div>
+            </li>
+		 <?php $i--; endforeach; ?>
+</ul>	
+</div>
+</div>	 
+</div>                

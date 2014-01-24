@@ -83,12 +83,31 @@ optionalZipCountries = [];
             <p class="welcome-msg"></p>
             <div class="block-cart-top">
         <div class="block-content">
-    <div class="actions">
-        <button type="button" title="Checkout" class="button-small" onclick="setLocation('http://web-experiment.info/magento14/bluescale/checkout/onepage/')"><span><span>Finalizar</span></span></button>
+        <?
+						if($this->carrinhoLista['listaAtual'])
+						{
+					?>
+                  <div class="actions">
+        <a class="finalizarPagamento" href="<?=$this->url("publico-finaliza-compra")?>"><button type="button" title="Checkout" class="button-small"><span><span>Finalizar</span></span></button></a>
     </div>
         <div class="summary">
-                        <p class="amount">0 items: <span class="price">$0.00</span></p>
+                        <p class="amount"><span class="quantItens"><?=count($this->carrinhoLista['listaAtual'])?></span> items: <span class="price"><?=$this->carrinhoLista['valorTotal']?></span></p>
                     </div>
+						<?
+						}
+						else
+						{
+						?>
+						<div class="actions">
+        <a style="display:none" class="finalizarPagamento" href="<?=$this->url("publico-finaliza-compra")?>"><button type="button" title="Checkout" class="button-small"><span><span>Finalizar</span></span></button></a>
+    					</div>
+        <div class="summary">
+                        <p class="amount"><span class="quantItens">0</span> items: <span class="price">$0.00</span></p>
+                    </div>	
+						<?
+						}
+						?>
+    
     </div>
 </div>
             <ul class="links">

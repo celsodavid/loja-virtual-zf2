@@ -27,6 +27,10 @@ $(function(){
 				success: function(data) {
 					if(data.listaProdutos.length >= 1)	
 					{
+						if($(".actions .finalizarPagamento").css("display") == "none")
+							{
+							$(".actions .finalizarPagamento").fadeIn("fast");
+							}
 						$(".header .quantItens").fadeOut("fast").html(data.listaProdutos.length).fadeIn("fast");
 						$(".header .price").fadeOut("fast").html(data.valorTotal).fadeIn("fast");
 						

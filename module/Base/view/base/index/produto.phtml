@@ -55,8 +55,8 @@
                                 ?>
                    <div class="add-to-cart">              
                                  <label for="qty">Quantidade:</label>
-        			 <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty">
-   	            		 <button type="button" title="Add to Cart" class="button btn-cart" onclick="productAddToCartForm.submit()"><span><span>Adicionar ao Carrinho</span></span></button>
+        			 <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty box_qtd">
+   	            		 <button type="button" title="Add to Cart" class="button btn-cart actionAddCarrinho" rev="<?=$this->detalheProduto->getIdproduto()?>"><span><span>Adicionar ao Carrinho</span></span></button>
    				 </div>
    				<?php 
                                     }

@@ -92,7 +92,7 @@ optionalZipCountries = [];
     </div>
 </div>
             <ul class="links">
-            <li class="first" ><a href="http://web-experiment.info/magento14/bluescale/wishlist/" title="My Wishlist" class="top-link-wishlist">Meu Carrinho</a></li>
+            <li class="first" ><a href="<?=$this->url("publico-carrinho-compra")?>" title="My Wishlist" class="top-link-wishlist">Meu Carrinho</a></li>
             <li ><a href="<?php print $this->url("Usuario/UsuarioAction",array("controller"=>"Login","action" => "logout"))?>" title="Log In" style="color:green">Sair</a></li>
             <li class=" last" ><a href="http://web-experiment.info/magento14/bluescale/customer/account/" title="My Account" >Minha Conta</a></li>
     </ul>
@@ -139,7 +139,7 @@ optionalZipCountries = [];
     </div>
 </form>
 </div>
-        <div class="main-container <?if($this->matchedRoute != "publico-categoria") print "col2-left-layout"; else print "col3-layout";?>">
+        <div class="main-container <?if($this->matchedRoute == "publico-carrinho-compra" || $this->matchedRoute == "publico-finaliza-compra") print "col1-layout"; else if($this->matchedRoute != "publico-categoria") print "col2-left-layout"; else print "col3-layout";?>">
         <div class="main">
         
  <?php

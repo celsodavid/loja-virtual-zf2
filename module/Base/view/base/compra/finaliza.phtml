@@ -12,49 +12,78 @@ if(!empty($this->nomeCompleto) && !empty($this->cep) && !empty($this->endereco) 
     if(count($this->carrinhoLista['listaAtual']) >= 1)
     {
 ?>
-		<div id="FinalizarCompra">
-			<h3 class="tt_MeusPedidos">Meus Pedidos</h3>
-				<div id="BoxFinalizarCompra">
 
-						<ul id="HeaderFinalizarProduto">
-							 <li class="FinalizarProduto">Produto</li>
-							 <li class="FinalizarQtd">Quantidade</li>
-							 <li class="FinalizarValor">Valor Unitário (R$)</li>
-							 <li class="FinalizarSub">Subtotal (R$)</li>
-						</ul>
-
-							<ul id="BoxListaFinalizar">
-							
-							<!--Produto da lista Finalizar-->
-							 <?php 
+			<h3 class="tt_MeusPedidos" style="clear:both;">Meus Pedidos</h3>
+<fieldset style="width:920px;margin-top:10px;float:left;">
+            <table id="shopping-cart-table" class="data-table cart-table">
+                <colgroup><col width="1">
+                <col width="1">
+                <col>
+                                        <col width="1">
+                                        <col width="1">
+                            <col width="1">
+                        
+                            </colgroup><thead>
+                    <tr class="first last">
+                        <th rowspan="1" class="a-center">&nbsp;</th>
+                        <th rowspan="1">&nbsp;</th>
+                        <th rowspan="1"><span class="nobr">Product Name</span></th>
+                                                <th class="a-center" colspan="1"><span class="nobr">Valor unitário</span></th>
+                        <th rowspan="1" class="a-center">Quant.</th>
+                        <th class="a-center" colspan="1">Subtotal</th>
+                    </tr>
+                                    </thead>
+               
+                <tbody>
+                 <?php 
     foreach($this->carrinhoLista['listaAtual'] AS $produto)
     {
     	?>
-								<li class="ListaFinalizar">
-								 	<div id="Checkout">
-								 		<p class="DescriptionCheckout"><?=$produto['produto']->getTitulo()?> - <?=$produto['produto']->getPeso()?>k/g</p>
-								 	</div>
+                                    <tr class="first last odd">
+    <td class="a-center"><a href="http://web-experiment.info/magento14/bluescale/checkout/cart/delete/id/84041/uenc/aHR0cDovL3dlYi1leHBlcmltZW50LmluZm8vbWFnZW50bzE0L2JsdWVzY2FsZS9jaGVja291dC9jYXJ0L2luZGV4Lz9fX19TSUQ9VQ,,/" title="Remove item" class="btn-remove2">Remove item</a></td>
+    <td><a href="http://web-experiment.info/magento14/bluescale/recycled-paper-pocket-journals-spring.html" title="Good Tote Bag"><img src="<?=$this->basePath()?>/images/produtos/thumb_small/<?=$produto['produto']->getFoto();?>" width="75" height="75" alt="Good Tote Bag"></a></td>
+    <td>
+        <h2 class="product-name">
+                    <a href="http://web-experiment.info/magento14/bluescale/recycled-paper-pocket-journals-spring.html">Good Tote Bag</a>
+                </h2>
+                    </td>
+            <td class="a-right">
+                    <span class="cart-price">
+        
+                            <span class="price"><?=$produto['produto']->getValor(true)?></span>            
+        </span>
 
-								 	<div id="Checkout">
-								 		<p class="QtdCheckout"><?=$produto['quantidade']?></p>
-								 	</div>
 
-								 	<div id="Checkout">
-								 		<p class="ValueCheckout"><?=$produto['produto']->getValor(true)?></p>
-								 	</div>
-
-								 	<div id="Checkout">
-								 		<p class="SubTotalCheckout"><?=$filter->formatCurrency($produto['produto']->getValor()*$produto['quantidade'], 'BRL');?></p>
-								 	</div>
-								 	
-								</li>
-								<?php 
-    }
-								?>
-		                        <!--Fim Produto da lista Finalizar-->
-							</ul>
-				</div>
-
+            </td>
+            <td class="a-center">
+        <input name="cart[84041][qty]" value="<?
+			            				  if($produto['produto']->getEstoque()[0]->getQuantidade() < $produto['quantidade'])
+			            				  {
+			            				  	  print $produto['produto']->getEstoque()[0]->getQuantidade();
+			            				  }
+			            				  else
+			            				  {
+			            				     print $produto['quantidade'];
+			            				  }
+			            				  ?>" size="4" title="Qty" class="input-text qty" maxlength="12">
+    </td>
+        <td class="a-right last">
+                    <span class="cart-price">
+        
+                            <span class="price"><?=$filter->formatCurrency($produto['produto']->getValor()*$produto['quantidade'], 'BRL');?></span>            
+        </span>
+            </td>
+        </tr>
+        <?php 
+    } 
+        ?>
+                                </tbody>
+            </table>
+            <script type="text/javascript">decorateTable('shopping-cart-table')</script>
+        </fieldset>
+		<div id="FinalizarCompra">
+				
+		
 
 				<div id="StepsCheckout">
 
@@ -127,13 +156,13 @@ if(!empty($this->nomeCompleto) && !empty($this->cep) && !empty($this->endereco) 
 
 					                  <label class="FormLogin">Login*:</label><br/><input type="text" class="BoxLogin actionLogin" value=""><br/><p class="xxx">(Criar nome de usuário)</p><br/>
 
-					                  <label class="FormPasswordSenha">Senha*:</label>
+					                  <label class="FormPasswordSenha" >Senha*:</label>
 
                                       <label class="FormPasswordConfirmar">Confirmar senha*:</label><br/>
 
-					                  <input type="password" class="BoxPasswordSenha actionPassoword" >
+					                  <input type="password" class="BoxPasswordSenha actionPassoword" style="width:100px;">
 
-					                 <input type="password" class="BoxPasswordConfirmar actionPassowordConfirm" ><br/><br/>
+					                 <input type="password" class="BoxPasswordConfirmar actionPassowordConfirm"  style="width:100px;"><br/><br/>
 
 					                 <input type="submit" title="Criar Conta" value="criar conta" class="EventcadastrarLoginFinaliza">
 
@@ -471,7 +500,7 @@ Quadra/Estrada/Praça e na sequência o nome do endereço)</p><br/>
 								    }
 								?>
 								</div>	
-									<img class="BoxResumoPagSeguro" src="<?=$this->basePath()?>/images/pagseguro_tutorial.png">
+									
 									<!--<p class="txtPagSeguro">PagSeguro é a solução completa para pagamentos online, que garante a segurança de quem compra na web. Quem compra com PagSeguro tem a garantia de produto ou serviço entregue ou seu dinheiro de volta.</p>-->
 								
 							</div>

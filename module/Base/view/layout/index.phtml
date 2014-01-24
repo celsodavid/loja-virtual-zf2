@@ -113,10 +113,10 @@ optionalZipCountries = [];
 						{
 					?>
                   <div class="actions">
-        <button type="button" title="Checkout" class="button-small" onclick="setLocation('http://web-experiment.info/magento14/bluescale/checkout/onepage/')"><span><span>Finalizar</span></span></button>
+        <a href="<?=$this->url("publico-finaliza-compra")?>"><button type="button" title="Checkout" class="button-small"><span><span>Finalizar</span></span></button></a>
     </div>
         <div class="summary">
-                        <p class="amount">0 items: <span class="price">$0.00</span></p>
+                        <p class="amount"><span class="quantItens"><?=count($this->carrinhoLista['listaAtual'])?></span> items: <span class="price"><?=$this->carrinhoLista['valorTotal']?></span></p>
                     </div>
 						<?
 						}
@@ -124,7 +124,7 @@ optionalZipCountries = [];
 						{
 						?>
         <div class="summary">
-                        <p class="amount">0 items: <span class="price">$0.00</span></p>
+                        <p class="amount"><span class="quantItens">0</span> items: <span class="price">$0.00</span></p>
                     </div>	
 						<?
 						}
@@ -133,7 +133,7 @@ optionalZipCountries = [];
     </div>
 </div>
             <ul class="links">
-            <li class="first" ><a href="http://web-experiment.info/magento14/bluescale/wishlist/" title="My Wishlist" class="top-link-wishlist">Meu Carrinho</a></li>
+            <li class="first" ><a href="<?=$this->url("publico-carrinho-compra")?>" title="My Wishlist" class="top-link-wishlist">Meu Carrinho</a></li>
             <li ><a href="#" title="Log In" class="eventOpenPopUp">Logar</a></li>
             <li ><a href="http://web-experiment.info/magento14/bluescale/customer/account/create/" title="Register" class="eventOpenPopUp">Registrar</a></li>
             <li class=" last" ><a href="http://web-experiment.info/magento14/bluescale/customer/account/" title="My Account" class="eventOpenPopUp">Minha Conta</a></li>
@@ -181,7 +181,7 @@ optionalZipCountries = [];
     </div>
 </form>
 </div>
-        <div class="main-container <?if($this->matchedRoute != "publico-categoria") print "col2-left-layout"; else print "col3-layout";?>">
+        <div class="main-container <?if($this->matchedRoute == "publico-carrinho-compra" || $this->matchedRoute == "publico-finaliza-compra") print "col1-layout"; else if($this->matchedRoute != "publico-categoria") print "col2-left-layout"; else print "col3-layout";?>">
         <div class="main">
         
  <?php

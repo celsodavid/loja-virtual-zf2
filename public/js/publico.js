@@ -17,95 +17,19 @@ $(function(){
 	});
 	
 		$(".actionAddCarrinho").on("click", function(){
-			alert("foi");
 			var actionIdProduto = $(this).attr("rev");	
-			var actionQuant = $(this).parents("#comprar_detalhe, .box_vejaTambem, .lista_categoria_produtos").find('input').val();
+			var actionQuant = $(".box_qtd").val();
 			var element = this;
 			$.ajax({
 				url: basePatch+"/carrinhoRest",
-				beforeSend:function(){
-					$(element).mouseenter(function() {
-						$(element).css("background-color", "#582700");
-						});
-					
-					$(element).css("background-image","url("+basePatch+"/images/loading.gif)");
-					if($(element).attr("rel") != 0)
-					{
-					$(element).html("Adicionando o <br/>produto ao carrinho..");
-					}
-					$(element).css("background-color", "#582700");
-				},
-				complete:function(){
-					$(element).css("background-image","url("+basePatch+"/images/btn_ir_cesta.png)");
-					if($(element).attr("rel") != 0)
-					{
-					$(element).html("Adicionar ao<br/> carrinho de compras");
-					}
-					$(element).mouseenter(function() {
-						$(element).css("background-color", "#351903");
-						});
-					$(element).mouseleave(function() {
-						$(element).css("background-color", "#582700");
-					  });
-					},
 				type: "post",
 				data: {actionAddCart:actionIdProduto,actionQuant:actionQuant},
 				success: function(data) {
 					if(data.listaProdutos.length >= 1)	
 					{
-						if($("#box_compras #DescricaoPrecoQuatidade li").size() == 0)
-							{
-								$("#box_compras").html(
-								'<ul class="header_conteudo_compra">\
-										<li class="header_tt_box_produto">\
-										<p class="header_txt_produto_compra">Produto</p>\
-									</li>\
-									<li class="header_tt_box_preco">\
-										<p class="header_txt_preco_compra">Preços (R$)</p>\
-									</li>\
-									<li class="header_tt_box_Qtd">\
-										<p class="header_txt_Qtd_compra">Qtde.</p>\
-									</li>\
-								</ul>\
-								<ul id="DescricaoPrecoQuatidade">\
-								</ul>\
-								<ul id="buttonCarrinho">\
-									<li class="ButtonCarrinhoDeCompra"><a href="'+basePatch+"/carrinho-compra"+'" title="Carrinho de compras">Carrinho de compras</a></li>\
-									<li class="ButtonFinalizarCompra"><a href="'+basePatch+"/finaliza-compra"+'" title="Finalizar Compra">Finalizar Compra</a></li>\
-								</ul>'
-								)
-							}
-						$("#box_compras #DescricaoPrecoQuatidade").html("");
-						$("#Box_Visor_Qtd .Visor_Qtd").html(data.listaProdutos.length);	
-						if($("#Box_Visor_Qtd").css("display") == "none")
-						{
-							$("#Box_Visor_Qtd").fadeIn();
-						}
-						$(".valor_total").fadeOut("fast").html(data.valorTotal).fadeIn("fast");
-						$.each(data.listaProdutos, function(i, item) { 
-							$("#box_compras #DescricaoPrecoQuatidade").append(
-									$('<li>').attr("class","BoxProdutosCesta").append(
-											$('<div>').attr("id","BoxDescricaoFoto").append(
-													
-													$('<span>').attr("class","imagem_produto_cesta").append(
-															$('<a>').attr("href",item.urlProduto).append(
-																	$('<img>').attr("src",basePatch+"/images/produtos/thumb/"+item.foto)	
-															)
-													)
-											).append($('<a>').attr("href",item.urlProduto).append(
-													$('<p>').append(item.titulo).attr("class","descricao_produto_cesta")
-											))
-									).append(
-							    		$('<div>').attr("id","BoxDescricaoPreco").append(
-							    			
-							    		).append(
-												$('<p>').append(item.valor).attr("class","descricao_preco_cesta")
-										)).append(
-											$('<div>').attr("id","BoxDescricaoQuatidade").append(
-													$('<p>').append(item.quantidade).attr("class","descricao_Qtd_cesta")
-											)
-								   )); 
-						});
+						$(".header .quantItens").fadeOut("fast").html(data.listaProdutos.length).fadeIn("fast");
+						$(".header .price").fadeOut("fast").html(data.valorTotal).fadeIn("fast");
+						
 					}	
 				},
 				error: function(){}

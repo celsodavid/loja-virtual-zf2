@@ -1,89 +1,66 @@
 <?php 
 $filter = new \NumberFormatter('pt_BR', \NumberFormatter::CURRENCY);
 ?>
-<!--Slider de Produtos-->
-	<div id="SliderProdutosGeral">
-		<h3 class="SliderProdutosGeral">Veja mais alguns produtos Seleto</h3>
-			<div id="StructureSlider">	
-			 <!--<a href="" style="display:none"><span class="seta_slider_esquerda"><img src="<?=$this->basePath()?>/images/seta_slider_esquerda.png"></span></a>-->
-				<div id="BoxSliderProdutos">
-					<ul id="BaseSlider">
-					<?php 
-					    foreach($this->produtosPublicidade AS $produto)
-					    {
-					?>
-						<li class="ContSlider">
-							<a href="<?php echo $this->url('publico-categoria/publico-categoria-e-subcategoria/publico-produto', array('categoriaslug'=>$produto->getProdutosubcategoria()->getCategorias()->getSlug(), 'subcategoriaslugSub'=>$produto->getProdutosubcategoria()->getSlugSubcategoria(), 'produtoSlug'=>$produto->getSlugProduto() )); ?>" alt="<?=$produto->getIdproduto()?>" rev="<?=$produto->getValor(true)?>" rel="<?=$produto->getTitulo()?>"><img class="ImgContSlider" src="<?=$this->basePath()?>/images/produtos/thumb_small/<?=$produto->getFoto();?>"></a>
-						</li>
-						<?php 
-					    }
-						?>
-					</ul>
-				</div>
-			 <!--<a href="" style="display:none"><span class="seta_slider_direita"><img src="<?=$this->basePath()?>/images/seta_slider_direita.png"></span></a>-->
-			
-				  <div id="ProductDescription" style="display:none">
-				  	
-				  	<!--Descrição dos Produtos do Slider-->
-				 	  <div id="BoxProductDescription">
-				 	  	<img class="detalhe_slider" src="<?=$this->basePath()?>/images/detalhe_slider.png">
-				 	  	<div id="ProductDescriptionContent">
-				 	  		<a href="###" class="linkProductDescriptionDesc"><p class="txtProductDescription"></p></a>
-				 	  		<p class="ValueProductDescription"></p>
-				 	  		<a href="" class="adicionarAcesta"><span class="ButtonProductDescription" title="Adicionar na cesta">Adicionar na cesta</span></a>
-				 	  	</div> 
-				 	  </div>
-				 	  <!--Fim Descrição dos Produtos do Slider-->
-
-				  </div>
-
-			</div> 
-	</div>
-      <!--Fim do Slider de Produtos-->
-<?php 
-    if(count($this->carrinhoLista['listaAtual']) >= 1)
-    {
-?>
-
-         <!--Pagina do Carrinho de Compras-->
-		<div id="CestaCompras">
-				<h3 class="CestaCompras">Minha cesta de compras</h3>
-				<div id="BoxCestaCompras">
-
-						<ul id="HeaderCestaCompras">
-							 <li class="CestaTopoProduto">Produto</li>
-							 <li class="CestaTopoDescricao">Descrição</li>
-							 <li class="CestaTopoValor">Valor R$</li>
-							 <li class="CestaTopoQtd">Quantidade</li>
-							 <li class="CestaTopoSub">Subtotal R$</li>
-							 <li class="CestaTopoExcluir">Excluir</li>
-						</ul>
-
-							<ul id="BoxListaProduto">
-							
-            <?php 
+<div class="cart">
+    <div class="page-title title-buttons">
+        <h1>Carrinho de Compras</h1>
+                <ul class="checkout-types">
+            <li>
+    <a href="<?=$this->url("publico-finaliza-compra")?>"><button type="button" title="Proceed to Checkout" class="button btn-checkout"><span><span>Finalizar Compra</span></span></button></a>
+</li>
+        </ul>
+            </div>
+    <ul class="messages"><li class="success-msg"><ul><li>Aqui você encontra todas informações de sua compra.</li></ul></li></ul>        <form action="http://web-experiment.info/magento14/bluescale/checkout/cart/updatePost/" method="post">
+        <fieldset>
+            <table id="shopping-cart-table" class="data-table cart-table">
+                <colgroup><col width="1">
+                <col width="1">
+                <col>
+                                        <col width="1">
+                                        <col width="1">
+                            <col width="1">
+                        
+                            </colgroup><thead>
+                    <tr class="first last">
+                        <th rowspan="1" class="a-center">&nbsp;</th>
+                        <th rowspan="1">&nbsp;</th>
+                        <th rowspan="1"><span class="nobr">Product Name</span></th>
+                                                <th class="a-center" colspan="1"><span class="nobr">Valor unitário</span></th>
+                        <th rowspan="1" class="a-center">Quant.</th>
+                        <th class="a-center" colspan="1">Subtotal</th>
+                    </tr>
+                                    </thead>
+                <tfoot>
+                    <tr class="first last">
+                        <td colspan="50" class="a-right last">
+                                                            <button type="button" title="Continue Shopping" class="button btn-continue" onclick="setLocation('http://web-experiment.info/magento14/bluescale/')"><span><span>Volte a comprar</span></span></button>
+                                                        <button type="submit" title="Update Shopping Cart" class="button btn-update"><span><span>Atualizar Carrinho</span></span></button>
+                        </td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                 <?php 
     foreach($this->carrinhoLista['listaAtual'] AS $produto)
     {
     	?>
-    	
-								 <li class="ListaDaCesta">
-								     
-								 	<div id="ImgProductsBasket">
-								 		<a href="<?php echo $this->url('publico-categoria/publico-categoria-e-subcategoria/publico-produto', array('categoriaslug'=>$produto['produto']->getProdutosubcategoria()->getCategorias()->getSlug(), 'subcategoriaslugSub'=>$produto['produto']->getProdutosubcategoria()->getSlugSubcategoria(), 'produtoSlug'=>$produto['produto']->getSlugProduto() )); ?>"><img src="<?=$this->basePath()?>/images/produtos/thumb_small/<?=$produto['produto']->getFoto();?>"></a>
-								 	</div>
-								 	<div id="ProductsFromBasket">
-								 		<a href="<?php echo $this->url('publico-categoria/publico-categoria-e-subcategoria/publico-produto', array('categoriaslug'=>$produto['produto']->getProdutosubcategoria()->getCategorias()->getSlug(), 'subcategoriaslugSub'=>$produto['produto']->getProdutosubcategoria()->getSlugSubcategoria(), 'produtoSlug'=>$produto['produto']->getSlugProduto() )); ?>"><p class="DescriptionProductsBasket"><?=$produto['produto']->getTitulo()?><?
-								 		    if($produto['produto']->getEstoque()[0]->getQuantidade() <= $produto['quantidade']) print ',<br/><span style="color:red">Limite de estoque atingido.</span>';
-								 		?></p></a>
-								 	</div>
-								 	<div id="ProductsFromBasket">
-								 		<p class="ValueProductsFromBasket"><?=$produto['produto']->getValor(true)?></p>
-								 	</div>
-                                    <input class="actionCode" type="hidden" value="<?=$produto['produto']->getIdproduto()?>"/>
-								 	<div id="ProductsFromBasket">
-									 	<span class="AmountProductsFromBasket">	
-									 	   
-			            				  <input style="background-color:#fff" disabled class="qtd_carrinho" type="text" name="quantidade" value="<?
+                                    <tr class="first last odd">
+    <td class="a-center"><a href="http://web-experiment.info/magento14/bluescale/checkout/cart/delete/id/84041/uenc/aHR0cDovL3dlYi1leHBlcmltZW50LmluZm8vbWFnZW50bzE0L2JsdWVzY2FsZS9jaGVja291dC9jYXJ0L2luZGV4Lz9fX19TSUQ9VQ,,/" title="Remove item" class="btn-remove2">Remove item</a></td>
+    <td><a href="http://web-experiment.info/magento14/bluescale/recycled-paper-pocket-journals-spring.html" title="Good Tote Bag"><img src="<?=$this->basePath()?>/images/produtos/thumb_small/<?=$produto['produto']->getFoto();?>" width="75" height="75" alt="Good Tote Bag"></a></td>
+    <td>
+        <h2 class="product-name">
+                    <a href="http://web-experiment.info/magento14/bluescale/recycled-paper-pocket-journals-spring.html">Good Tote Bag</a>
+                </h2>
+                    </td>
+            <td class="a-right">
+                    <span class="cart-price">
+        
+                            <span class="price"><?=$produto['produto']->getValor(true)?></span>            
+        </span>
+
+
+            </td>
+            <td class="a-center">
+        <input name="cart[84041][qty]" value="<?
 			            				  if($produto['produto']->getEstoque()[0]->getQuantidade() < $produto['quantidade'])
 			            				  {
 			            				  	  print $produto['produto']->getEstoque()[0]->getQuantidade();
@@ -92,30 +69,35 @@ $filter = new \NumberFormatter('pt_BR', \NumberFormatter::CURRENCY);
 			            				  {
 			            				     print $produto['quantidade'];
 			            				  }
-			            				  ?>">
-			            					<ul class="Qtd_Mudar">
-			            					  <li class="change_qtd_carrinho MoreItens"> <a href="#">mais</a></li>
-			                                   <li class="change_qtd_carrinho  LessItens"> <a href="#">menos</a></li> 
-			            					</ul>
-			            				</span>
-								 	</div>
+			            				  ?>" size="4" title="Qty" class="input-text qty" maxlength="12">
+    </td>
+        <td class="a-right last">
+                    <span class="cart-price">
+        
+                            <span class="price"><?=$filter->formatCurrency($produto['produto']->getValor()*$produto['quantidade'], 'BRL');?></span>            
+        </span>
+            </td>
+        </tr>
+        <?php 
+    } 
+        ?>
+                                </tbody>
+            </table>
+            <script type="text/javascript">decorateTable('shopping-cart-table')</script>
+        </fieldset>
+    </form>
+    <div class="cart-collaterals">
+        <div class="col2-set">
+            <div class="col-1">
+                            </div>
+            <div class="col-2">
+                <form id="discount-coupon-form" action="http://web-experiment.info/magento14/bluescale/checkout/cart/couponPost/" method="post">
+   
+</form>
 
-								 	<div id="ProductsFromBasket">
-								 		<p class="SubTotalProductsFromBasket"><?=$filter->formatCurrency($produto['produto']->getValor()*$produto['quantidade'], 'BRL');?></p>
-								 	</div>
-
-								 	<div id="ProductsFromBasket">
-								 	  <a href="#" rev="<?=$produto['produto']->getIdproduto()?>" class="actionRemoveCart" title="Excluir esse produto da minha cesta">
-								 		<!--<img class="CloseProductsFromBasket" title="excluir do carrinho de compras">-->
-								 		excluir
-								 	  </a>
-								 	</div>
-								  </li>
-							  <?php }?>
-								<!--Fim do Produto no Carrinho-->
-							</ul>
-
-						<ul id="HeaderCestaCompras">
+            </div>
+        </div>
+        <ul id="HeaderCestaCompras">
 							  <li class="txt_prazoDentrega">Consulte o valor do seu frete</li>
 								 <li class="SeuCep">
 								 	<p class="txt_SeuCep">Digite seu CEP</p>
@@ -136,7 +118,6 @@ $filter = new \NumberFormatter('pt_BR', \NumberFormatter::CURRENCY);
 								 	</a>
 								 </li>
 						</ul>
-
 						<ul id="BoxListaProduto">
 						 <span class="BoxEntrega">						 	
 						 	 <p class="TxtBoxEntrega">
@@ -151,35 +132,6 @@ $filter = new \NumberFormatter('pt_BR', \NumberFormatter::CURRENCY);
 		                        <p class="txt_TotalFrete">Total<?if(!empty($this->valorFrete)) print " com frete";?>:</p>
 							</li>
 
-						  <a href="<?=$this->url("home")?>"><span class="ButtonCarCompras_Comprar" title="Continuar Comprando">CONTINUAR COMPRANDO</span></a>
-						  <a href="<?=$this->url("publico-finaliza-compra")?>"><span class="ButtonCarCompras_Finalizar" title="Finalizar Compra">FINALIZAR COMPRA</span></a>
-
 						</ul>
-
-				</div>		
-				
-		</div>
-		<?php 
-    }
-    else {
-    	
-?>			           <!--Pagina Vazia do Carrinho de Compras-->
-       <div id="CestaCompras">
-				<h3 class="CestaCompras">Minha cesta de compras</h3>
-					<div id="BoxCestaCompras">
-
-						<img class="imgCestaVazia" src="<?=$this->basePath()?>/images/cestaVazia.png" title="cesta vazia">
-
-							<div id="CestaVazia">
-								<p class="txtCestaVazia"><span class="ttCestaVazia">Sua cesta de compras esta vazia.</span><br/><br/>
-								Você ainda não adicionou nenhum produto ao seu carrinho de compras. Navegue pelo site<br/> e selecione os produtos desejados.</p>
-								<a href="<?=$this->url("home")?>"><span class="ButtonCestaVazia" title="continuar comprando">CONTINUAR COMPRANDO</span></a>
-							</div>	
-
-					</div>
-		</div>
-		                <!--Fim da Pagina Vazia do Carrinho de Compras-->		
-<?php 
-    }
-?>	
-          <!--Fim da Pagina do Carrinho de Compras-->
+    </div>
+</div>

@@ -30,7 +30,7 @@ class CadastroRestController extends AbstractRestfulController
             $entity = $repository->getRepository('Usuario\Entity\UsuarioCadastro');
                 $idEntityAlvo = $entity->findOneBy(array('usuariosusuarios' => $auth->getIdentity(),'ativo' => 1));
                 $service->update(array("id" => $idEntityAlvo->getIdcadastro(), 'ativo'=> 0));
-            $Cadastro = $service->insert($auth->getIdentity()->getIdusuario());
+            $Cadastro = $service->insert(array("idUsuario" => $auth->getIdentity()->getIdusuario()));
             $service->update(array("id" => $Cadastro->getIdcadastro(),
             		"cep" => $data['actionCep'],
             		"rua" => $data['actionRua'],

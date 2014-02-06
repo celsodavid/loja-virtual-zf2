@@ -155,7 +155,7 @@ span.BoxConcluirButtonOff{color:#666; cursor:default;float:left; border: none; p
 
 
 /**/
-table#NovoEndereco { margin-top: 10px; float: left;}
+table#NovoEndereco { margin-top: 10px; float: left;margin-left:20px;}
 
 tr.BoxRadio { margin-bottom: 15px; float: left;}
 tr.TituloBoxRadio { font-size: 14px; margin: 0 0 15px 7px; float: left; color:#ff7f25;}

@@ -419,6 +419,28 @@ var MenuBar5 = new Spry.Widget.MenuBar("MenuBar5");
                     {
                     	?>
                     	<div class="col-right sidebar">
+                    	<?
+						if($this->carrinhoLista['listaAtual'])
+						{
+					?>
+                    	<div class="block block-viewed">
+    <div class="block-title" style="background-color: #f6990e">
+        <strong><img style="float: left;" src="<?=$this->basepath("images/1390601222_shop-01.png")?>"/> <span style="margin-top: 1px;float:left;margin-left:3px;">Minha Cesta de Compras</span></strong>
+    </div>
+    <div class="block-content">
+        <ol id="recently-viewed-items">
+                    <li class="item odd">
+                <p class="product-name"><a href="http://web-experiment.info/magento14/bluescale/ty-beanie-baby-hello-kitty-tartan.html">Ty Beanie Baby Hello Kitty Tartan</a></p>
+            </li>
+                    <li class="item last even">
+                <p class="product-name"><a href="http://web-experiment.info/magento14/bluescale/diamonultratm-cubic-zirconia-platinum-over-sterling-silver-channel-set-ring.html">DiamonUltra™ Ring</a></p>
+            </li>
+                </ol>
+    </div>
+</div>
+<?php 
+						}
+?>
 <div><div class="block block-popular">
         <div class="block-title">
         <strong><span style="font-size:10px;">Produtos Relacionados</span></strong>
@@ -465,21 +487,6 @@ var MenuBar5 = new Spry.Widget.MenuBar("MenuBar5");
 </div>
 </div>
 
-</div><div class="block block-viewed">
-    <div class="block-title">
-        <strong><span>Recently Viewed Products</span></strong>
-    </div>
-    <div class="block-content">
-        <ol id="recently-viewed-items">
-                    <li class="item odd">
-                <p class="product-name"><a href="http://web-experiment.info/magento14/bluescale/ty-beanie-baby-hello-kitty-tartan.html">Ty Beanie Baby Hello Kitty Tartan</a></p>
-            </li>
-                    <li class="item last even">
-                <p class="product-name"><a href="http://web-experiment.info/magento14/bluescale/diamonultratm-cubic-zirconia-platinum-over-sterling-silver-channel-set-ring.html">DiamonUltra™ Ring</a></p>
-            </li>
-                </ol>
-        <script type="text/javascript">decorateList('recently-viewed-items');</script>
-    </div>
 </div>
 </div>
                     	<?php 

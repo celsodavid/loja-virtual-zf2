@@ -113,7 +113,7 @@ class UsuarioController extends AbstractActionController
         $error = array();
         if($this->request->isPost())
         {
-            
+        	
             $em = $this->getServiceLocator()->get("Doctrine\ORM\EntityManager");
             $entity = $em->getRepository("Usuario\Entity\UsuarioUsuarios");
             $requestArray = $this->getRequest()->getPost()->toArray();
@@ -127,7 +127,7 @@ class UsuarioController extends AbstractActionController
                         $action = $service->insert(array('login' => $requestArray['eventLogin'], 'email' => $requestArray['eventEmail'], 'senha' => md5($requestArray['eventPassword'])));
                             $idUsuario = $action->getIdusuario();
                             $service = $this->getServiceLocator()->get('Usuario\Service\Cadastro');
-                            $service->insert($idUsuario);
+                            $service->insert(array("idUsuario" => $idUsuario));
                             $viewModel = new ViewModel(array('message' => 1));
                     }
                     else

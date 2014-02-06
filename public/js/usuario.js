@@ -664,6 +664,7 @@
 		var actionBairro = $("#BoxEndereco .BoxBairro").val();
 		var actionCidade = $("#BoxEndereco .BoxCidade option:selected").val();
 		var errorCadastro = 0;
+		
 		$(".formAction input,select").each(function( index,element ) {
 			if($(element).val() == "")
 				{
@@ -678,6 +679,7 @@
 				async:false,
 				data: {actionCep:actionCep,actionRua:actionRua,actionNumero:actionNumero,actionBairro:actionBairro,actionCidade:actionCidade},
 				success: function(data) {
+					
 					$(".modelNotificacao").attr("id","modelSucesso");
 					$(".erro").html("Endereço alternativo salvo com sucesso:");
 					$(".tentarNovamente").html("Continuar");

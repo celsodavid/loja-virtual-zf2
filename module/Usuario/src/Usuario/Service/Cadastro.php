@@ -11,12 +11,12 @@ class Cadastro extends AbstractService{
 		parent::__construct($em);
         $this->entity = "Usuario\Entity\UsuarioCadastro";
 	}
-	public function insert($idUsuario)
+	public function insert(array $idUsuario)
 	{
 	    $this->setTargetEntity(array(
 	    		array("setTargetEntity" => "Usuario\Entity\UsuarioUsuarios",
 	    				"setCampo" => "setUsuariosusuarios",
-	    				"setActionReference" => $idUsuario)
+	    				"setActionReference" => $idUsuario['idUsuario'])
 	    ));
 	    return parent::insert(array("ativo" => 1,"padrao" => 1));
 	}

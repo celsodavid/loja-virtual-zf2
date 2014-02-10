@@ -315,7 +315,7 @@ Quadra/Estrada/Praça e na sequência o nome do endereço)</p><br/>
 					                   <label class="FormBairro">Bairro*:</label>
 					                  <label class="FormCidade">Cidade*:</label><br/>
 
-					                  <input type="text"  class="BoxBairro" value="<?=$this->bairro?>" <?if($offValue) print 'disabled="disabled"'?>>
+					                  <input style="width:110px;" type="text"  class="BoxBairro" value="<?=$this->bairro?>" <?if($offValue) print 'disabled="disabled"'?>>
 					                  <?php
                                             if(count($this->cidades) >= 1)
                                             {
@@ -344,8 +344,8 @@ Quadra/Estrada/Praça e na sequência o nome do endereço)</p><br/>
                                          <label class="FormTelResidencial">Telefone Residencial*:</label>
                                          <label class="FormTelCelular">Telefone Celular:</label>
                               
-					                     <input type="text" class="BoxTelResidencial" value="<?=$this->cadastro->getTelefoneRes()?>">
-									     <input type="text" class="BoxTelCelular" value="<?=$this->cadastro->getTelefoneCel()?>"><br/><br/>
+					                     <input style="width:115px;" type="text" class="BoxTelResidencial" value="<?=$this->cadastro->getTelefoneRes()?>">
+									     <input style="width:100px;margin-left:13px;" type="text" class="BoxTelCelular" value="<?=$this->cadastro->getTelefoneCel()?>"><br/><br/>
 					                         <div class="showInscEstadual"  <?if($this->cadastro->getTipoUser() == 1) print 'style="display:none"';?>>
 										 <label class="FormTelComercial">Telefone Comercial:</label><br/>
 										 <input type="text" class="BoxTelComercial" value="<?=$this->cadastro->getTelefoneCom()?>"><br/><br/>

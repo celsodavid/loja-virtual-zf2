@@ -268,7 +268,7 @@ input.EventcadastrarCadastro:hover {background: #e57220 ;}
 select.BoxEstado {width: 235px; padding: 8px 5px; border: 1px solid #DDD; margin-top: 5px}
 label.FormComplemento {margin-left: 94px} 
 label.FormCidade { margin-left: 105px}
-label.FormTelCelular { margin-left: 25px}
+label.FormTelCelular { margin-left: 15px}
 
 p.AlterarMinhaSenha a { font-size: 14px; color: #ff7f25; font-style: italic;}
 p.AlterarMinhaSenha a:hover { text-decoration: underline;}
